@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgis/postgis:15-3.4
+    container_name: tinder_db
+    restart: always
+    environment:
+      POSTGRES_DB: tinder
+      POSTGRES_USER: tinder_user
+      POSTGRES_PASSWORD: tinder_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
